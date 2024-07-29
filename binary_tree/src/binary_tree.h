@@ -28,11 +28,12 @@ void assignRchild(BiTNode * p2){
 class Binary_Tree{
  BiTNode* root;
 public:
-void CreateBiTree();
+void CreateBiTree(BiTNode* );
 bool PreOrderTraverse(void f(void));
-void print(BiTNode &);
+void print(BiTNode *);
 bool InOrderTraverse(void f(void));
 bool PostOrderTraverse(void f(void));
 void LevelOrderTraverse(void f(void));
-
+int CountLeaf(BiTNode*);
+BiTNode* GetRoot();
 };
