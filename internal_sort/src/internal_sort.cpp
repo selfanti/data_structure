@@ -1,7 +1,7 @@
 #include"internal_sort.h"
 #include<iostream>
 void internal_sort::insert_sort(int size)
-{
+{   
     int i,j,temp;
     for(int i=1;i<size;i++)
     {
@@ -64,22 +64,25 @@ void internal_sort::swap(int a,int b)
     data[b]=temp;
 }
 void internal_sort::quick_sort(int low,int high){
+    static int times=0;
     if(low<high){
     int pivot=partition(low,high);
     quick_sort(low,pivot-1);
     quick_sort(pivot+1,high);
+    times++;
+    std::cout<<"times:"<<times<<std::endl;
     }
 }
 int internal_sort::partition(int low,int high){
     int pivot=data[low];
-    while(low!=high)
+    while(low<high)
     {
-        while(low<high&&data[high]>pivot)
+        while(low<high&&data[high]>=pivot)
         {
             high--;
         }
         data[low]=data[high];
-        while(low<high&&data[low]<pivot)
+        while(low<high&&data[low]<=pivot)
         {
             low++;
         }
