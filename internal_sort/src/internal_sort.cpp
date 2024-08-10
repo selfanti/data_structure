@@ -46,3 +46,45 @@ void internal_sort::shell_sort(int size)
         }
     }
 }
+void internal_sort::bubble_sort(int size){
+    for(int i=0;i<size;i++)
+    {
+        for(int j=size-1;j>i;j--)
+        {
+            if(data[j]<data[j-1])
+            swap(j,j-1);
+        }
+    }
+    
+}
+void internal_sort::swap(int a,int b)
+{
+    int temp=data[a];
+    data[a]=data[b];
+    data[b]=temp;
+}
+void internal_sort::quick_sort(int low,int high){
+    if(low<high){
+    int pivot=partition(low,high);
+    quick_sort(low,pivot-1);
+    quick_sort(pivot+1,high);
+    }
+}
+int internal_sort::partition(int low,int high){
+    int pivot=data[low];
+    while(low!=high)
+    {
+        while(low<high&&data[high]>pivot)
+        {
+            high--;
+        }
+        data[low]=data[high];
+        while(low<high&&data[low]<pivot)
+        {
+            low++;
+        }
+        data[high]=data[low];
+    }
+    data[low]=pivot;
+    return low;
+}
