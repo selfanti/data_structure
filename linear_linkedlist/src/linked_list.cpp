@@ -145,5 +145,10 @@ void LinkedList::ListDelete(int i,int &e)
     }
 }
 void LinkedList::ListTransverse(void print(int)){
-;
+    auto p=head;
+    while(p->next!=nullptr)
+    {
+    print(p->next->data);
+    p=p->next;
+    }
 }

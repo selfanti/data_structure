@@ -19,6 +19,7 @@ void shell_sort(int);
 void bubble_sort(int);
 void quick_sort(int,int);
 void select_sort(int);
-void heap_sort(int);
+void heap_sort(int); 
 void merge_sort(int);
+void radix_sort(int);
 };

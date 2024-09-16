@@ -91,3 +91,7 @@ int internal_sort::partition(int low,int high){
     data[low]=pivot;
     return low;
 }
+void internal_sort::select_sort(int size)
+{
+    
+}

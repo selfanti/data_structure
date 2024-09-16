@@ -6,11 +6,7 @@ void print(int);
 int main(int argc, char** argv)
 {   
     LinkedList list;
-    list.ListInsert(1,12);
+    list.ListInsert(2,12);
     list.ListTransverse(print);
-    int temp;
-    if(list.GetItem(2,temp))
-    print(temp);
-    cout << "hello world!" << endl;
     return 0;
 }
