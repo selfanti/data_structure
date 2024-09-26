@@ -37,7 +37,6 @@ LNode* NextPos(LNode*);
 bool LocatePos(LNode*,int);
 LNode* LocateElem(bool fun(int,int),int);
 bool ListTransverse(void fun(LNode*));
-bool compare(int,int);
 
 
 };
