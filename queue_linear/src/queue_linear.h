@@ -1,3 +1,4 @@
+//顺序队列的实现
 #define MAXSIZE 100
 class SqQueue
 {   public:
