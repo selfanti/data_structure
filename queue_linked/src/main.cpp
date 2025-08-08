@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv)
 {
-    Queue_linked q1;
+    Queue_linked<int> q1;
     int val;
     for(int i=0;i<90;i++)
     q1.EnQueue(i);

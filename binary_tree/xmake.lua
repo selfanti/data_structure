@@ -3,6 +3,8 @@ add_rules("mode.debug", "mode.release")
 target("binary_tree")
     set_kind("binary")
     add_files("src/*.cpp")
+    --add_includedirs("../queue_linked/src")
+    
 
 
 

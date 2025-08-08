@@ -1,61 +1,85 @@
 #include"binary_tree.h"
+#include"../../queue_linked/src/queue_linked.h"
 
-class Binart_Tree{   
-
-    BiTNode* root;                  
-public:
-void CreateBiTree(BiTNode* T){
+void Binary_Tree::CreateBiTree(BiTNode* &T){
     char ch;
     std::cin>>ch;
-    if(ch==' ') T=NULL;
+    if(ch=='q') T=NULL;
     else{
-        T->assigndata(ch);
+        T=new BiTNode(ch);
         CreateBiTree(T->getlchild());
         CreateBiTree(T->getrchild());
     }
 
 };
-void print(BiTNode *tempNode){
+Binary_Tree::Binary_Tree(){
+    root=NULL;
+}
+void Binary_Tree::print(BiTNode *tempNode){
     std::cout<<" "<<tempNode->getdata()<<" ";
 };
 
-bool PreOrderTraverse(BiTNode* T,void f(BiTNode *tempNode)){
+bool Binary_Tree::PreOrderTraverse(BiTNode* T,void f(BiTNode *tempNode)){
     if(T==NULL) return true;
     else{
         f(T);
         PreOrderTraverse(T->getlchild(),f);
         PreOrderTraverse(T->getrchild(),f);
     }
+    return true;
 };
 
-bool InOrderTraverse(void f(void)){
-
+bool Binary_Tree::InOrderTraverse(BiTNode* T,void f(BiTNode *tempNode)){
+    if(T==NULL) return true;
+    else{
+        InOrderTraverse(T->getlchild(),f);
+        f(T);
+        InOrderTraverse(T->getrchild(),f);
+    }
+    return true;
 };
-bool PostOrderTraverse(void f(void)){
-
+bool Binary_Tree::PostOrderTraverse(BiTNode* T,void f(BiTNode *tempNode)){
+    if(T==NULL) return true;
+    else{
+        PostOrderTraverse(T->getlchild(),f);
+        PostOrderTraverse(T->getrchild(),f);
+        f(T);
+    }
+    return true;
 };
-void LevelOrderTraverse(void f(void)){
+void Binary_Tree::LevelOrderTraverse(BiTNode* T,void f(BiTNode *tempNode)){
+    if(T==NULL) return;
+    Queue_linked<BiTNode*> Q;
+    BiTNode *p;
+    Q.EnQueue(T);
+    while(!Q.isempty())
+    {
+        Q.DeQueue(p);
+        f(p);
+        if(p->getlchild()!=nullptr)
+        Q.EnQueue(p->getlchild());
+        if(p->getrchild()!=nullptr)
+        Q.EnQueue(p->getrchild());
+    }
 
 };
 /*
 先序顺序计算叶节点数量
 */
-int CountLeaf(BiTNode* T){    
+int Binary_Tree::CountLeaf(BiTNode* T){    
     static int count=0;
     
     if(T)
     {
-        if(T->getlchild()&&T->getrchild())
+        if(T->getlchild()==NULL&&T->getrchild()==NULL)
         {
-            count++;
+            return 1;
         }
-        CountLeaf(T->getlchild());
-        CountLeaf(T->getrchild());
+        return CountLeaf(T->getlchild())+CountLeaf(T->getrchild());
     }
     return count;
 }
-BiTNode* GetRoot(){
+BiTNode* &Binary_Tree::GetRoot(){
     return root;
 }
 
-};

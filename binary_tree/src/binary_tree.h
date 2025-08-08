@@ -6,13 +6,18 @@ class BiTNode{
     char data;
     BiTNode *lchild, *rchild;
 public:
-int getdata(){
+BiTNode(char temp){
+    data=temp;
+    lchild=NULL;
+    rchild=NULL;
+}
+char getdata(){
     return data;
 }
-BiTNode *getlchild(){
+BiTNode* &getlchild(){
     return lchild;
 }
-BiTNode * getrchild(){
+BiTNode* & getrchild(){
     return rchild;
 }
 void assigndata(char temp){
@@ -28,12 +33,13 @@ void assignRchild(BiTNode * p2){
 class Binary_Tree{
  BiTNode* root;
 public:
-void CreateBiTree(BiTNode* );
-bool PreOrderTraverse(void f(void));
+Binary_Tree();
+void CreateBiTree(BiTNode* &T);
+bool PreOrderTraverse(BiTNode* T,void f(BiTNode *tempNode));
 void print(BiTNode *);
-bool InOrderTraverse(void f(void));
-bool PostOrderTraverse(void f(void));
-void LevelOrderTraverse(void f(void));
+bool InOrderTraverse(BiTNode* T,void f(BiTNode *tempNode));
+bool PostOrderTraverse(BiTNode* T,void f(BiTNode *tempNode));
+void LevelOrderTraverse(BiTNode* T,void f(BiTNode *tempNode));
 int CountLeaf(BiTNode*);
-BiTNode* GetRoot();
+BiTNode* &GetRoot();
 };

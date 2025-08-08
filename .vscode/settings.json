@@ -58,6 +58,9 @@
         "typeinfo": "cpp",
         "bit": "cpp",
         "unordered_set": "cpp",
-        "sort_algorithms.h": "c"
+        "sort_algorithms.h": "c",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "numbers": "cpp"
     }
 }

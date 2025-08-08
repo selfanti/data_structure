@@ -1,30 +1,31 @@
 //带头节点的链式队列实现
-
+template<class T>
 class LinkNode{
     public:
-    int data;
+    T data;
     LinkNode* next;
     LinkNode(){};
-    LinkNode(int val){data=val;next=nullptr;};
+    LinkNode(T val){data=val;next=nullptr;};
 };
+template<class T>
 class Queue_linked
 {
-    LinkNode *rear,*front;
+    LinkNode<T> *rear,*front;
     public:
     Queue_linked()
     {   
 
-        front=new LinkNode;  
+        front=new LinkNode<T>;  
         rear=front;         //front和rear都指向头节点，此时队列为空
         front->next=nullptr;
     };
-    void EnQueue(int val)  //链式队列不会满
+    void EnQueue(T val)  //链式队列不会满
     {
-        auto node=new LinkNode(val);
+        auto node=new LinkNode<T>(val);
         rear->next=node;
         rear=rear->next;
     }
-    bool DeQueue(int &val)
+    bool DeQueue(T &val)
     {   
         if(isempty())
         return false;
